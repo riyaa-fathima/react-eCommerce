@@ -21,7 +21,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/wishlink" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/" element={ <Home/>} />
-        <Route path="/product-detail" element={ <ProductDetails/>} />
+        <Route path="/product/:id" element={ <ProductDetails/>} />
+        <Route path="/home/:id" element={ <ProductDetails/>} />
       </Routes>
      
     </BrowserRouter>

@@ -1,8 +1,18 @@
-.product-page{
-    margin-top: 50px;
-    align-items: center;
-    h2{
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-weight: 700;
+.product-page {
+  margin-top: 50px;
+  align-items: center;
+  
+  h2 {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-weight: 700;
+  }
+  .product-card {
+    background-color: rgb(247, 250, 253);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(10px); 
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); 
     }
+  }
 }
