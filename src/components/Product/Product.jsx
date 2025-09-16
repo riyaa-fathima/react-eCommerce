@@ -28,14 +28,12 @@ function Product() {
         <Row>
           {products.map((product) => (
             <Col md={3} key={product.id} className="mb-4">
-              <NavLink to="/product-detail">
+              <NavLink to={`${product.id}`}>
                 <Card className="product-card h-100">
                   <Card.Img src={product.images[0]} alt={product.title} />
                   <Card.Body>
                     <Card.Title>{product.title}</Card.Title>
-                    <Card.Subtitle className="price">
-                      {product.price}
-                    </Card.Subtitle>
+                    <h4 className="text-muted">${product.price}</h4>
                   </Card.Body>
                 </Card>
               </NavLink>
