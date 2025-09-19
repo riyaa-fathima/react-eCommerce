@@ -6,6 +6,7 @@ import "./productDetails.scss";
 function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState();
+  const [wiishlist, setWiishlist] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -14,6 +15,9 @@ function ProductDetail() {
       setProduct(data);
     };
     fetchProduct();
+
+    let savedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    setWiishlist(savedWishlist);
   }, [id]);
 
   const addToCart = (product) => {
@@ -31,6 +35,22 @@ function ProductDetail() {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    alert("added to cart")
+  };
+
+  const handleWishlist = (product) => {
+    let updatedWIshlist = [...wiishlist];
+    const exists = updatedWIshlist.find((item) => item.id === product.id);
+
+    if (exists) {
+      updatedWIshlist = updatedWIshlist.filter(
+        (item) => item.id !== product.id
+      );
+    } else {
+      updatedWIshlist.push(product);
+    }
+    setWiishlist(updatedWIshlist);
+    localStorage.setItem("wishlist", JSON.stringify(updatedWIshlist));
   };
 
   if (!product) return <h3 className="text-center my-5">Loading...</h3>;
@@ -44,8 +64,15 @@ function ProductDetail() {
             alt={product.title}
             className="img-fluid rounded shadow"
           />
-        </Col>
 
+          <Button
+            variant="light"
+            style={{ maxWidth: "50px", maxHeight: "50px" }}
+            onClick={() => handleWishlist(product)}
+          >
+            <i className="bi bi-heart"></i>
+          </Button>
+        </Col>
         <Col md={6}>
           <h2>{product.title}</h2>
           <h4 className="text-muted">${product.price}</h4>
@@ -62,7 +89,7 @@ function ProductDetail() {
             >
               Add to Cart
             </Button>
-            <Button variant="dark">Buy Now</Button>
+            <Button variant="outline-dark">Buy Now</Button>
           </div>
         </Col>
       </Row>
