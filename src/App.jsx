@@ -6,6 +6,7 @@ import Wishlist from "./components/Wishlist/Wishlist.jsx";
 import ProductDetails from "./components/ProductDetails/ProductDetails.jsx";
 import { Route, Routes } from "react-router-dom";
 import Discount from "./components/Discount/Discount.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/:id" element={ <ProductDetails/>} />
         <Route path="/discount" element={ <Discount/>} />
       </Routes>
+    
   </>;
 }
 

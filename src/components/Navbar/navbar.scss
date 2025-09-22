@@ -1,4 +1,4 @@
-.navvlink{
+.navvlink {
   position: fixed;
   top: 0;
   width: 100%;
@@ -76,14 +76,48 @@
   }
 }
 
-// Responsive adjustments
-@media (max-width: 768px) {
-  .nav-search {
-    width: 100%;
-    margin: 0.5rem 0;
-  }
 
-  .nav-link-custom {
-    margin-right: 0.5rem;
+@media (max-width: 992px) {
+  .navbar {
+    flex-wrap: wrap; 
+
+    .navbar-brand {
+      flex: 1;
+      font-size: 1.2rem;
+    }
+
+    
+    .navbar-toggler {
+      margin-left: auto;
+      border: none;
+      outline: none;
+      box-shadow: none;
+
+    
+    }
+
+    .nav-search {
+     
+      width: 100%;
+      margin: 0.5rem ;
+
+      input {
+        width: 100%;
+        font-size: 0.9rem;
+      }
+    }
+
+    .navbar-collapse {
+      width: 100%;
+    
+    }
+
+    .nav-link-custom {
+      margin: 0.3rem 0;
+      display: block;
+      text-align: left;
+    }
   }
 }
+
+

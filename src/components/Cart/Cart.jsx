@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./cart.scss";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import Summary from "../Summary/Summary";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -15,19 +16,12 @@ function Cart() {
     if (savedCoupon) setCoupon(savedCoupon);
   }, []);
 
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-
-  const discount = coupon ? (total * coupon.percentage) / 100 : 0;
-  const finalTotal = total - discount;
-
   const removeFromCart = (id) => {
     const updatedCart = cartItems.filter((item) => item.id !== id);
     setCartItems(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
+
   const decreaseQuantity = (id) => {
     const updatedCart = cartItems.map((item) =>
       item.id === id
@@ -37,6 +31,7 @@ function Cart() {
     setCartItems(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
+  
   const increaseQuantity = (id) => {
     const updatedCart = cartItems.map((item) =>
       item.id === id ? { ...item, quantity: (item.quantity || 1) + 1 } : item
@@ -119,22 +114,7 @@ function Cart() {
         </Col>
 
         <Col>
-          <Card className="order-summary">
-            <h4>Order Summary</h4>
-            <div className="summary-row">
-              <span>Total:</span>
-              <span>${total.toFixed(2)}</span>
-            </div>
-            <div className="summary-row">
-              <span>Discount:</span>
-              <span> ${discount.toFixed(2)}</span>
-            </div>
-            <hr />
-            <div className="summary-row final">
-              <span>Final Total:</span>
-              <span>${finalTotal.toFixed(2)}</span>
-            </div>
-          </Card>
+         <Summary cartItems={cartItems} coupon={coupon}/>
         </Col>
       </Row>
     </Container>

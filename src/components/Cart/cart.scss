@@ -2,18 +2,86 @@
   margin-top: 50px;
   align-items: center;
   h2 {
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    text-align: center;
     font-weight: 700;
-  } 
-  h5{
+    font-family: "Franklin Gothic Medium", Arial, sans-serif;
+  }
+  h5 {
     color: black;
   }
-  .inc-button{
-    background-color:rgb(31, 30, 30);
-    border-radius: 80px;
-  }
+  
 
-  .order-summary{
-    width: 400px;
+.page-section {
+  margin-top: 50px;
+}
+
+.card-custom {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+ 
+}
+
+.img-fluid {
+  max-width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+}
+@media (max-width: 992px) {
+  .cart-page {
+    margin-top: 30px;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .card-custom {
+      margin-bottom: 1.5rem;
+    }
+
+    .page-section {
+      margin-top: 30px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .cart-page {
+    margin-top: 20px;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h5 {
+      font-size: 1rem;
+    }
+
+    .page-section {
+      margin-top: 20px;
+    }
+
+    .card-custom {
+      padding: 0.8rem;
+    }
+
+    .img-fluid {
+      height: auto;
+    }
+  }
+}
+@media (max-width: 480px) {
+  .cart-page {
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    h5 {
+      font-size: 0.9rem;
+    }
+
+    .card-custom {
+      padding: 0.6rem;
+    }
   }
 }

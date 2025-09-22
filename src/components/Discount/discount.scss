@@ -1,3 +1,151 @@
-.coupon-card{
-    margin-top: 100px;
+.coupon-card {
+  margin-top: 100px;
+
+  max-width: 800px;
+  margin-left: 100px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  label {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+
+  input {
+    width: 100%;
+
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-top: 22px;
+
+    font-weight: 500;
+  }
+
+  h5 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .row {
+    margin-bottom: 10px;
+  }
+
+  .col {
+    display: flex;
+    align-items: center;
+  }
+
+  .saved-coupon {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-weight: 500;
+      color: #333;
+    }
+
+    button {
+      font-size: 0.8rem;
+      padding: 4px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .order-summary {
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .summary-row {
+      margin-left: 15px;
+    }
+
+    .code-input {
+      margin-left: 15px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .coupon-card {
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 16px;
+  }
+  .coupon-card .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .coupon-card .col {
+    margin-bottom: 12px;
+    justify-content: flex-start;
+  }
+  .coupon-card input,
+  .coupon-card button {
+    width: 100%;
+  }
+
+  .order-summary {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px;
+    padding: 1rem;
+
+    .summary-row {
+      margin-left: 0;
+      text-align: center;
+    }
+
+    .code-input {
+      margin: 10px auto;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        width: 90%;
+        margin-bottom: 10px;
+      }
+
+      button {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .order-summary {
+    padding: 0.5rem;
+
+    .code-input {
+      input,
+      button {
+        width: 100%;
+      }
+    }
+  }
 }

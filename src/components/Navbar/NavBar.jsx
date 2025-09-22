@@ -22,6 +22,7 @@ function NavBar() {
                 <NavLink to="/product" className="nav-link-custom">
                   product
                 </NavLink>
+               
               </Nav>
 
               <Form className="d-flex mx-auto nav-search">
