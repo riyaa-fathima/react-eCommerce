@@ -40,7 +40,7 @@ function Wishlist() {
             <Card className="mb-4 shadow-sm wishlist-card" key={item.id}>
               <Row className="wishlist-item align-items-center mb-4">
                 <Col md={3}>
-                 <NavLink to={"/product/{item.id}"}>
+                 <NavLink to={`/product/${item.id}`}>
                   <img
                     src={item.images[0]}
                     alt={item.title}
@@ -50,7 +50,7 @@ function Wishlist() {
                     </NavLink>
                 </Col>
                 <Col md={6}>
-                 <NavLink to={"/product/{item.id}"}>
+                 <NavLink to={`/product/${item.id}`}>
                   <h5>{item.title}</h5>
                  </NavLink>
                   <p className="text-muted">${item.price}</p>
