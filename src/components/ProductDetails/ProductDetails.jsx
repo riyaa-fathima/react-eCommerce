@@ -69,6 +69,7 @@ function ProductDetail() {
             variant="light"
             style={{ maxWidth: "50px", maxHeight: "50px" }}
             onClick={() => handleWishlist(product)}
+            className="wish-button"
           >
             <i className="bi bi-heart"></i>
           </Button>

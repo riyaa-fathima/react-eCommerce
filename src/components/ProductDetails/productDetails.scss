@@ -1,9 +1,25 @@
-.detail-page{
-    margin-top: 50px;
-    align-items: center;
+.detail-page {
+  margin-top: 50px;
+  align-items: center;
 
-    img{
-        max-height: 500px;
+  .row-page {
+    position: relative;
+    img {
+      max-height: 500px;
+    }
+    .wish-button{
+      position: absolute;
+     left: 494px;
+    }
+  }
+}
+@media(max-width: 992px){
+    .row-page{
+        position: relative;
         
+        .wish-button{
+          position: absolute;
+          left: 1px;
+        }
     }
 }

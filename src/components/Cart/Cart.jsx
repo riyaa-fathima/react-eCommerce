@@ -83,7 +83,7 @@ function Cart() {
                 <Row className="inc-button">
                   <Col>
                     <Button
-                      variant="dark"
+                      variant="light"
                       onClick={() => decreaseQuantity(item.id)}
                       className="me-1"
                     >
@@ -91,7 +91,7 @@ function Cart() {
                     </Button>
                     <span className="mx-2">{item.quantity || 1}</span>
                     <Button
-                      variant="dark"
+                      variant="light"
                       onClick={() => increaseQuantity(item.id)}
                       className="me-2"
                     >
@@ -100,7 +100,7 @@ function Cart() {
                   </Col>
                 </Row>
 
-                <Row>
+                <Row className="remove-btn">
                   <Button
                     variant="danger"
                     onClick={() => removeFromCart(item.id)}
