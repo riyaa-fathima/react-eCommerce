@@ -7,10 +7,17 @@ function Summary({ cartItems }) {
   const [input, setInput] = useState("");
 
   const handleApplyCoupon = () => {
-    
     const savedCoupon = JSON.parse(localStorage.getItem("coupon"));
-    if (savedCoupon && savedCoupon.name == input) {
-      setApplyCoupon(savedCoupon);
+    console.log("save", savedCoupon);
+    console.log("input", input);
+
+    const filteredCoupon = savedCoupon.filter(
+      (coupon) => coupon.name === input
+    );
+
+    if (filteredCoupon) {
+      setApplyCoupon(filteredCoupon[0]);
+      setInput("");
     }
   };
 
@@ -18,7 +25,9 @@ function Summary({ cartItems }) {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
   const discount = applyCoupon ? (total * applyCoupon.percentage) / 100 : 0;
+
   const finalTotal = total - discount;
   return (
     <>
