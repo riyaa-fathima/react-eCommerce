@@ -18,6 +18,7 @@ function Summary({ cartItems }) {
     if (filteredCoupon) {
       setApplyCoupon(filteredCoupon[0]);
       setInput("");
+      alert("coupon applied")
     }
   };
 
