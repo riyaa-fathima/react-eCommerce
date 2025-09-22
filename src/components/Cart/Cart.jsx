@@ -53,7 +53,7 @@ function Cart() {
     <Container className="cart-page py-5">
       <h2 className="text-center mb-4">YOUR CART</h2>
       <Row>
-        <Col>
+        <Col lg={8} md={12}>
           {cartItems.map((item) => (
             <Row
               key={item.id}
@@ -113,7 +113,7 @@ function Cart() {
           ))}
         </Col>
 
-        <Col>
+        <Col  lg={4} md={12} className="mt-4 mt-lg-0">
          <Summary cartItems={cartItems} coupon={coupon}/>
         </Col>
       </Row>
