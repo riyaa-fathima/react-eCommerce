@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import "./productDetails.scss";
+import "./productDetail.scss";
 
 function ProductDetail() {
   const { id } = useParams();
