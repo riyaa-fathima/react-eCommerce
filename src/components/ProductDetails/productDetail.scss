@@ -63,9 +63,7 @@
     .row-page {
       flex-direction: column;
 
-      img {
-        max-height: 350px;
-      }
+    
 
       .wish-button {
         top: 8px;
@@ -91,10 +89,7 @@
   .detail-page {
     margin-top: 15px;
 
-    .row-page img {
-      max-height: 280px;
-    }
-
+   
     h2 {
       font-size: 1.2rem;
     }

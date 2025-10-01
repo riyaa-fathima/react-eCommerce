@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./productDetail.scss";
 
-function ProductDetail() {
+function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState();
   const [wiishlist, setWiishlist] = useState([]);
@@ -98,4 +98,4 @@ function ProductDetail() {
   );
 }
 
-export default ProductDetail;
+export default ProductDetails;

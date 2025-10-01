@@ -3,11 +3,11 @@ import "./home.scss";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import beauty from "../../assets/beauty.jpeg";
 import Brands from "../Brands/Brands";
-import Product from "../Product/Product";
+import Product from "../Product/Products";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 
-function Home() {
+function Hero() {
   const navigate = useNavigate();
 
   const handleShopNow = () => {
@@ -36,13 +36,9 @@ function Home() {
         </Container>
       </div>
 
-      <Brands />
-      <div className="home-product">
-        <Product />
-      </div>
-      <Footer/>
+    
     </>
   );
 }
 
-export default Home;
+export default Hero;

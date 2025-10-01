@@ -4,7 +4,7 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Summary from "../Summary/Summary";
 
-function Cart() {
+function Carts() {
   const [cartItems, setCartItems] = useState([]);
   const [coupon, setCoupon] = useState(null);
 
@@ -121,4 +121,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default Carts;

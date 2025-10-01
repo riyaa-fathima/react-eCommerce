@@ -3,7 +3,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import "./product.scss";
 import { NavLink } from "react-router-dom";
 
-function Product() {
+function Products() {
   const [products, setProducts] = useState([]);
 
   const fetchuser = async () => {
@@ -45,4 +45,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default Products;
