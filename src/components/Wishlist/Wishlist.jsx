@@ -4,7 +4,7 @@ import "./wishlist.scss";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-function Wishlist() {
+function Wishlists() {
   const [wishlistItems, setWishlistItems] = useState([]);
 
   useEffect(() => {
@@ -81,4 +81,4 @@ function Wishlist() {
   );
 }
 
-export default Wishlist;
+export default Wishlists;
