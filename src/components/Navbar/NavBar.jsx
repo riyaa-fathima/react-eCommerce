@@ -4,11 +4,19 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import "./navbar.scss";
+import SearchCard from "../SearchCard/SearchCard";
 
 function NavBar() {
-  const [expanded, setExpanded] = useState(false);
-
+  const [expanded, setExpanded] = useState();
   const handleClose = () => setExpanded(false);
+
+  const [search, setSearch] = useState("");
+
+  const product = JSON.parse(localStorage.getItem("products") || []);
+  const filterdProducts = product.filter((p) =>
+    p.title.toLowerCase().includes(search.toLowerCase())
+  );
+  console.log("filterProduct", filterdProducts);
 
   return (
     <div className="navvlink">
@@ -36,16 +44,20 @@ function NavBar() {
               </NavLink>
             </Nav>
           </Navbar.Collapse>
-          
 
           <div className="nav-icons d-flex align-items-center">
             <NavLink
               to="/wishlink"
               className="nav-link-custom position-relative me-3"
+              onClick={handleClose}
             >
               <i className="bi bi-heart"></i>
             </NavLink>
-            <NavLink to="/cart" className="nav-link-custom">
+            <NavLink
+              to="/cart"
+              className="nav-link-custom"
+              onClick={handleClose}
+            >
               <i className="bi bi-cart"></i>
             </NavLink>
           </div>
@@ -55,8 +67,13 @@ function NavBar() {
               type="search"
               placeholder="Search products..."
               className="me-2 rounded-pill"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
-            <Button variant="dark" className="rounded-pill">
+         
+            {search && <SearchCard filteredProducts={filterdProducts} />}
+          
+            <Button variant="dark" className="rounded-pill" type="submit">
               <i className="bi bi-search"></i>
             </Button>
           </Form>

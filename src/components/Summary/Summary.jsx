@@ -18,14 +18,14 @@ function Summary({ cartItems }) {
     if (filteredCoupon) {
       setApplyCoupon(filteredCoupon[0]);
       setInput("");
-      alert("coupon applied")
+      alert("coupon applied");
     }
   };
 
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  let total = 0;
+  for (let i = 0; i < cartItems.length; i++) {
+    total += cartItems[i].price * (cartItems[i].quantity || 1);
+  }
 
   const discount = applyCoupon ? (total * applyCoupon.percentage) / 100 : 0;
 
