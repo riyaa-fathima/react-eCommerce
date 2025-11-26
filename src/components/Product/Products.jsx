@@ -28,7 +28,7 @@ function Products() {
         <Row>
           {products.map((product) => (
             <Col md={3} key={product.id} className="mb-4">
-              <NavLink to={`${product.id}`}>
+              <NavLink to={`/product/${product.id}`}>
                 <Card className="product-card h-100">
                   <Card.Img src={product.images[0]} alt={product.title} />
                   <Card.Body>
