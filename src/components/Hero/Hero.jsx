@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.scss";
+import "./hero.scss";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import beauty from "../../assets/beauty.jpeg";
 import Brands from "../Brands/Brands";

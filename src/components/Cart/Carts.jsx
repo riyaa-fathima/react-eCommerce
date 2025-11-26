@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./cart.scss";
+import "./carts.scss";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Summary from "../Summary/Summary";

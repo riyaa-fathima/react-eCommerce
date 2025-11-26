@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import "./product.scss";
+import "./products.scss";
 import { NavLink } from "react-router-dom";
 
 function Products() {
@@ -14,12 +14,15 @@ function Products() {
 
     const slicedData = await products.slice(0, 10);
     console.log(slicedData);
-
     setProducts(slicedData);
+    localStorage.setItem("products", JSON.stringify(slicedData));
   };
+
   useEffect(() => {
     fetchuser();
   }, []);
+
+  
 
   return (
     <>
