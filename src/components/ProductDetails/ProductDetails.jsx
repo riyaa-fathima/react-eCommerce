@@ -5,52 +5,67 @@ import "./productDetail.scss";
 
 function ProductDetails() {
   const { id } = useParams();
-  const [product, setProduct] = useState();
-  const [wiishlist, setWiishlist] = useState([]);
-
+  const [product, setProduct] = useState(null);
+  const [wishlist, setWishlist] = useState([]);
   useEffect(() => {
     const fetchProduct = async () => {
-      const res = await fetch(`https://dummyjson.com/products/${id}`);
-      const data = await res.json();
-      setProduct(data);
+      try {
+        const res = await fetch(`https://dummyjson.com/products/${id}`);
+        const data = await res.json();
+        setProduct(data);
+      } catch (err) {
+        console.error("Fetch failed:", err);
+      }
     };
+
     fetchProduct();
 
-    let savedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    setWiishlist(savedWishlist);
+    try {
+      const saved = JSON.parse(localStorage.getItem("wishlist") || "[]");
+      setWishlist(saved);
+    } catch (err) {
+      console.log(err);
+
+      setWishlist([]);
+    }
   }, [id]);
 
   const addToCart = (product) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existingItem = cart.find((item) => item.id === product.id);
+    try {
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const exists = cart.find((item) => item.id === product.id);
 
-    if (existingItem) {
-      cart = cart.map((item) =>
-        item.id === product.id
-          ? { ...item, quantity: (item.quantity || 1) + 1 }
-          : item
-      );
-    } else {
-      cart.push({ ...product, quantity: 1 });
+      if (exists) {
+        cart = cart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: (item.quantity || 1) + 1 }
+            : item
+        );
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } catch (err) {
+      console.error("Add to cart fail:", err);
     }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("added to cart")
   };
 
   const handleWishlist = (product) => {
-    let updatedWIshlist = [...wiishlist];
-    const exists = updatedWIshlist.find((item) => item.id === product.id);
+    try {
+      let updated = [...wishlist];
+      const exists = updated.find((item) => item.id === product.id);
 
-    if (exists) {
-      updatedWIshlist = updatedWIshlist.filter(
-        (item) => item.id !== product.id
-      );
-    } else {
-      updatedWIshlist.push(product);
+      if (exists) {
+        updated = updated.filter((item) => item.id !== product.id);
+      } else {
+        updated.push(product);
+      }
+      setWishlist(updated);
+      localStorage.setItem("wishlist", JSON.stringify(updated));
+    } catch (err) {
+      console.error("Wishlist error:", err);
     }
-    setWiishlist(updatedWIshlist);
-    localStorage.setItem("wishlist", JSON.stringify(updatedWIshlist));
   };
 
   if (!product) return <h3 className="text-center my-5">Loading...</h3>;
