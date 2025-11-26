@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container, Form, FormControl } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,8 +11,22 @@ function NavBar() {
   const handleClose = () => setExpanded(false);
 
   const [search, setSearch] = useState("");
+  const [product, setProduct] = useState([]);
 
-  const product = JSON.parse(localStorage.getItem("products") || []);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("https://dummyjson.com/products");
+        const data = await res.json();
+        setProduct(data.products); 
+      } catch (err) {
+        console.error("Error fetching products:", err);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   const filterdProducts = product.filter((p) =>
     p.title.toLowerCase().includes(search.toLowerCase())
   );
@@ -70,9 +84,9 @@ function NavBar() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-         
+
             {search && <SearchCard filteredProducts={filterdProducts} />}
-          
+
             <Button variant="dark" className="rounded-pill" type="submit">
               <i className="bi bi-search"></i>
             </Button>
